@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "de080963-2884-4f55-8a61-8bbf1796882f",
+		"name": "OAuth2Demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1.密码模式",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic dXNlci1jbGllbnQ6dXNlcl8xMjM0NTY=",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8088/oauth/token?grant_type=password&username=admin&password=123456&scope=all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"oauth",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "password"
+						},
+						{
+							"key": "username",
+							"value": "admin"
+						},
+						{
+							"key": "password",
+							"value": "123456"
+						},
+						{
+							"key": "scope",
+							"value": "all"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.密码模式获取token测试",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer 0580a3b6-b816-4e75-984f-f9af0bd2bb95",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8090/code/get",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"code",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.Refresh Token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic dXNlci1jbGllbnQ6dXNlcl8xMjM0NTY=",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8088/oauth/token?grant_type=refresh_token&refresh_token=380a7ff3-0e86-44b2-8d74-dac33f3e80a2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"oauth",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "refresh_token"
+						},
+						{
+							"key": "refresh_token",
+							"value": "380a7ff3-0e86-44b2-8d74-dac33f3e80a2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.授权码模式",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic Y29kZS1jbGllbnQ6Y29kZV8xMjM0NTY=",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8088/oauth/token?grant_type=authorization_code&response_type=code&client=code-client&code=LiMuC9&redirect_uri=http://localhost:8090/code/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"oauth",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code"
+						},
+						{
+							"key": "response_type",
+							"value": "code"
+						},
+						{
+							"key": "client",
+							"value": "code-client"
+						},
+						{
+							"key": "code",
+							"value": "LiMuC9"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8090/code/login"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
