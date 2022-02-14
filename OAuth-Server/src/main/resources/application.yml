@@ -1,0 +1,17 @@
+server:
+  port: 8088
+
+spring:
+  application:
+    name: OAuth-Server
+  main:
+    allow-bean-definition-overriding: true
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,health,info,env
