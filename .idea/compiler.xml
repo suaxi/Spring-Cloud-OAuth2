@@ -3,15 +3,12 @@
   <component name="CompilerConfiguration">
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
-      <profile name="Maven default annotation processors profile" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="OAuth2-Auth-Server" />
-        <module name="OAuth2-Auth-User" />
-        <module name="OAuth2-Auth-Code" />
-      </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="OAuth2-Auth-Code" target="1.8" />
+      <module name="OAuth2-Auth-Server" target="1.8" />
+      <module name="OAuth2-Auth-User" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

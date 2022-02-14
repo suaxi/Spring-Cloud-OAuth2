@@ -5,9 +5,6 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/OAuth2-Auth-Server/pom.xml" />
-        <option value="$PROJECT_DIR$/OAuth2-Auth-User/pom.xml" />
-        <option value="$PROJECT_DIR$/OAuth2-Auth-Code/pom.xml" />
       </list>
     </option>
   </component>
