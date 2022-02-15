@@ -1,0 +1,284 @@
+{
+	"info": {
+		"_postman_id": "b8e80754-9ea1-4453-a315-b72f193cc2b4",
+		"name": "SpringCloudOAuth2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1、客户端模式",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "c1",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "secret",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8088/oauth/token",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2、密码模式",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "c1",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "secret",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8088/oauth/token",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3、简化模式",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8088/oauth/authorize?client_id=c1&response_type=token&scope=all&redirect_uri=https://wangchouchou.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"oauth",
+						"authorize"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "c1"
+						},
+						{
+							"key": "response_type",
+							"value": "token"
+						},
+						{
+							"key": "scope",
+							"value": "all"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "https://wangchouchou.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.1、授权码模式申请code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8088/oauth/authorize?client_id=c1&response_type=code&scope=all&redirect_uri=https://wangchouchou.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"oauth",
+						"authorize"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "c1"
+						},
+						{
+							"key": "response_type",
+							"value": "code"
+						},
+						{
+							"key": "scope",
+							"value": "all"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "https://wangchouchou.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.2、授权码模式申请令牌",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "c1",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "secret",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "U4QkfX",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "https://wangchouchou.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8088/oauth/token",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5、刷新令牌",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8088/oauth/token?grant_type=refresh_token&refresh_token=5bf1d08e-d6a1-4f7f-a3d4-bc36bdc1369f&client_id=c1&client_secret=secret",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"oauth",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "refresh_token"
+						},
+						{
+							"key": "refresh_token",
+							"value": "5bf1d08e-d6a1-4f7f-a3d4-bc36bdc1369f"
+						},
+						{
+							"key": "client_id",
+							"value": "c1"
+						},
+						{
+							"key": "client_secret",
+							"value": "secret"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6、验证令牌",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8088/oauth/check_token?token=5493924a-bddf-42b1-b4ad-dded05482aef",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"oauth",
+						"check_token"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "5493924a-bddf-42b1-b4ad-dded05482aef"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
