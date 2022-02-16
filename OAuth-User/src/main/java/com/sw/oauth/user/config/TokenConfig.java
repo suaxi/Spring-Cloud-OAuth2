@@ -1,9 +1,8 @@
-package com.sw.oauth.server.config;
+package com.sw.oauth.user.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.oauth2.provider.token.TokenStore;
-import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
@@ -21,6 +20,7 @@ public class TokenConfig {
 //        return new InMemoryTokenStore();
 //    }
 
+    //JWT令牌
     @Bean
     public TokenStore tokenStore() {
         return new JwtTokenStore(accessTokenConverter());

@@ -279,6 +279,31 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "7、接口测试",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 4c5e0ce6-beda-47bd-903d-96a6622096d9",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8089/admin/test",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"admin",
+						"test"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

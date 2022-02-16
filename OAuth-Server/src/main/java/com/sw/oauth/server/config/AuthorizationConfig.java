@@ -17,6 +17,7 @@ import org.springframework.security.oauth2.provider.code.InMemoryAuthorizationCo
 import org.springframework.security.oauth2.provider.token.AuthorizationServerTokenServices;
 import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenStore;
+import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 
 /**
  * @author suaxi
@@ -36,6 +37,9 @@ public class AuthorizationConfig extends AuthorizationServerConfigurerAdapter {
 
     @Autowired
     private TokenStore tokenStore;
+
+    @Autowired
+    private JwtAccessTokenConverter accessTokenConverter;
 
     @Autowired
     private ClientDetailsService clientDetailsService;
@@ -107,6 +111,9 @@ public class AuthorizationConfig extends AuthorizationServerConfigurerAdapter {
         tokenServices.setSupportRefreshToken(true);
         //令牌存储策略
         tokenServices.setTokenStore(tokenStore);
+        //TODO
+        //使用JWT令牌
+        tokenServices.setTokenEnhancer(accessTokenConverter);
         //默认令牌有效期
         tokenServices.setAccessTokenValiditySeconds(3600);
         //刷新令牌有效期
